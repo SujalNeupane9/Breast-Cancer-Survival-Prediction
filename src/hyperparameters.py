@@ -1,7 +1,7 @@
 from typing import Dict, Union
 import os
 from sklearn.metrics import f1_score
-import catboost
+#import catboost
 import comet_ml
 from catboost import CatBoostClassifier
 from comet_ml import Experiment
@@ -39,12 +39,12 @@ def search_hyperparameters()-> Dict:
     study.optimize(objective,n_trials=20)
     best_params = study.best_params
     best_value = study.best_value
-    Experiment(auto_output_logging="default")
+    
     experiment = Experiment(
         api_key="qaUy62jElVin2dR5B7isdybJF",
         project_name="Brest Cancer Survival Prediction",
     )
-    
+    Experiment(auto_output_logging="default")
     # split best_params into preprocessing and model hyper-parameters
     best_preprocessing_hyperparams = {key: value for key, value in best_params.items() if key.startswith('pp_')}
     

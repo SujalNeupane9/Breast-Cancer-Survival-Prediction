@@ -10,6 +10,7 @@ def train_model():
     X_train,X_test,y_train,y_test = data_preprocessing(data)
     params = search_hyperparameters()
     model = CatBoostClassifier(**params,silent=True)
+    model.fit(X_train,y_train)
     with open('model/model.pkl', 'wb') as file:
         pickle.dump(model,file=file)
         
