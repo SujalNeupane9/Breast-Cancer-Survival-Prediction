@@ -6,16 +6,18 @@ from sklearn.model_selection import train_test_split
 from typing import List, Tuple, Optional, Union
 import numpy as np
 import pandas as pd
+#from ingest_data import ingest_data
 
 from src.logger import get_console_logger
 
 logger = get_console_logger('Data-preprocessing')
 
 def data_preprocessing(df:pd.DataFrame)-> np.ndarray:
-    df.drop(['Date_of_Surgery','Date_of_Last_Visit'],axis=1)
+    df = df.drop(['Date_of_Surgery','Date_of_Last_Visit'],axis=1)
     numerical_columns = [column for column in df.columns if df[column].dtype in ['int64','float64']]
     categorical_columns = [column for column in df.columns if df[column].dtype == 'object' and column != 'Patient_Status']
-    
+    #print(numerical_columns)
+    #print(categorical_columns)
     numerical_preprocessor = Pipeline(steps=[
     ("imputer",SimpleImputer(strategy='mean')),
     ("scaler",StandardScaler())

@@ -18,6 +18,8 @@ def main():
     Protein3 = st.number_input('Protein3')
     Protein4 = st.number_input('Protein4')
     Tumour_Stage = st.selectbox('Tumor_stage',['II', 'I', 'III'])
+    ER_status = st.selectbox('ER_status',['Positive','Negative'])
+    PR_status = st.selectbox('PR_status',['Positive','Negative'])
     Histology = st.selectbox('Histology',['Infiltrating Ductal Carcinoma', 'Infiltrating Lobular Carcinoma','Mucinous Carcinoma'])
     HER2_status = st.selectbox('HER2_status',['Negative', 'Positive'])
     Surgery_type = st.selectbox('Surgery_type',['Other', 'Lumpectomy', 'Modified Radical Mastectomy','Simple Mastectomy'])
@@ -40,8 +42,10 @@ def main():
             'Protein4':[Protein4],
             'Tumour_Stage':[Tumour_Stage],
             'Histology':[Histology],
-            'HER2_status':[HER2_status],
-            'Surgery_type':[Surgery_type]
+            'HER2 status':[HER2_status],
+            'Surgery_type':[Surgery_type],
+            'ER status':[ER_status],
+            'PR status':[PR_status]
         })
         processed_data = prepare_for_test(data)
         

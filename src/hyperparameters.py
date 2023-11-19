@@ -44,7 +44,7 @@ def search_hyperparameters()-> Dict:
         api_key="qaUy62jElVin2dR5B7isdybJF",
         project_name="Brest Cancer Survival Prediction",
     )
-    Experiment(auto_output_logging="default")
+    Experiment(api_key="qaUy62jElVin2dR5B7isdybJF",auto_output_logging="default")
     # split best_params into preprocessing and model hyper-parameters
     best_preprocessing_hyperparams = {key: value for key, value in best_params.items() if key.startswith('pp_')}
     
