@@ -6,7 +6,8 @@ from sklearn.model_selection import train_test_split
 from typing import List, Tuple, Optional, Union
 import numpy as np
 import pandas as pd
-#from ingest_data import ingest_data
+import pickle
+
 
 from src.logger import get_console_logger
 
@@ -44,6 +45,9 @@ def data_preprocessing(df:pd.DataFrame)-> np.ndarray:
     X_train = preprocessor.fit_transform(X_train)
     X_test = preprocessor.transform(X_test)
 
+    with open('model/pipe.pkl','wb') as file:
+      pickle.dump(preprocessor,file)
+      
     label_encoder = LabelEncoder()
 
     y_train = label_encoder.fit_transform(y_train)

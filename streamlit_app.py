@@ -3,10 +3,12 @@ import pickle
 import numpy as np
 import pandas as pd
 
-from utils.utils import prepare_for_test
 
 with open('model/model.pkl','rb') as file:
             model = pickle.load(file)
+            
+with open('model/pipe.pkl','rb') as file:
+            preprocessor = pickle.load(file)
 
 def main():
     st.title('Cancer Surivival Prediction')
@@ -47,9 +49,10 @@ def main():
             'ER status':[ER_status],
             'PR status':[PR_status]
         })
-        processed_data = prepare_for_test(data)
         
-        prediction = model.predict(processed_data)
+        processed_data = preprocessor.transform(data)
+        
+        prediction = model.predict(processed_data)[0][0]
         
         st.success(f"The survival rate of patient is {survival_labels[prediction]} ")
     
