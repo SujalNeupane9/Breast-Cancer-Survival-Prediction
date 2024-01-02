@@ -19,10 +19,6 @@ jobs:
       - name: Upgrade Pip and Setuptools
         run: |
           pip install --upgrade pip setuptools
-      - name: Install PyYAML
-        run: >
-          pip install PyYAML==5.4.1  # Replace with the version you want to
-          install
       - name: Install other dependencies
         run: |
           pip install -r requirements.txt
