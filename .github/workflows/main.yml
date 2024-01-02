@@ -16,9 +16,6 @@ jobs:
       - name: Clear Pip Cache
         run: |
           pip cache purge
-      - name: Upgrade Pip and Setuptools
-        run: |
-          pip install --upgrade pip setuptools
       - name: Install other dependencies
         run: |
           pip install -r requirements.txt
