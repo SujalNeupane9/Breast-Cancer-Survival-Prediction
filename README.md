@@ -13,6 +13,7 @@ This repository contains code for predicting breast cancer survival using machin
   - `logger.py`: Logging functionalities for tracking the training process.
   - `preprocessing.py`: Preprocessing methods and functions.
   - `train.py`: Script for training the breast cancer survival prediction model.
+  - `paths.py`: Contains path to dataset and the path where model is saved.
   - `ingest_data.py`: Data ingestion and processing script.
 - **notebook:** Experimental notebooks used for analysis and development.
 - `run_pipeline.py`: Script to initiate the training process using the source code present in the `src` directory.
