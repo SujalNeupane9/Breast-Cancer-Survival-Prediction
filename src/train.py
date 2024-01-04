@@ -1,7 +1,7 @@
 from src.ingest_data import ingest_data
 from src.preprocessing import data_preprocessing
 from src.hyperparameters import search_hyperparameters
-from src.paths import MODELS_DIR
+from src.paths import MODEL_DIR
 from catboost import CatBoostClassifier
 
 import pickle
@@ -12,7 +12,7 @@ def train_model():
     params = search_hyperparameters()
     model = CatBoostClassifier(**params,silent=True)
     model.fit(X_train,y_train)
-    with open('model/model.pkl', 'wb') as file:
+    with open(MODEL_DIR+'/model.pkl', 'wb') as file:
         pickle.dump(model,file=file)
         
         
