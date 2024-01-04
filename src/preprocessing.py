@@ -10,6 +10,7 @@ import pickle
 
 
 from src.logger import get_console_logger
+from src.paths import MODEL_DIR
 
 logger = get_console_logger('Data-preprocessing')
 
@@ -45,7 +46,7 @@ def data_preprocessing(df:pd.DataFrame)-> np.ndarray:
     X_train = preprocessor.fit_transform(X_train)
     X_test = preprocessor.transform(X_test)
 
-    with open('model/pipe.pkl','wb') as file:
+    with open(MODEL_DIR+'/pipe.pkl','wb') as file:
       pickle.dump(preprocessor,file)
       
     label_encoder = LabelEncoder()
