@@ -8,5 +8,5 @@ logger = get_console_logger('Data-ingestion')
 
 ## The data import from API is also imported here if there is any..
 def ingest_data()-> pd.DataFrame:
-    data = pd.read_csv(DATA_DIR)
+    data = pd.read_csv(DATA_DIR+'data.csv')
     return data
