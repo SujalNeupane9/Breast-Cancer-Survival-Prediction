@@ -1,27 +1,23 @@
-name: CI-CD Pipeline
-'on':
+name: Train Model
+
+on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-      - name: Clear Pip Cache
-        run: |
-          pip cache purge
-      - name: Install other dependencies
-        run: |
-          pip install -r requirements.txt
-      - name: Build and deploy model
-        run: |
-          python src/run_pipeline.py
-      - name: Deploy Streamlit app
-        run: |
-          streamlit run streamlit_app.py
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Build and run Docker container
+      run: |
+        docker build -t my-model .
+        docker run my-model python run_pipeline.py
