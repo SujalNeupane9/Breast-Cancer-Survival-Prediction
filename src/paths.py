@@ -8,5 +8,5 @@ MODEL_DIR = PARENT_DIR / 'model'
 if not Path(DATA_DIR).exists():
     os.mkdir(DATA_DIR)
 
-if not Path(MODELS_DIR).exists():
-    os.mkdir(MODELS_DIR)
+if not Path(MODEL_DIR).exists():
+    os.mkdir(MODEL_DIR)
