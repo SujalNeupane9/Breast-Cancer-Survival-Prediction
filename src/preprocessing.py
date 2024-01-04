@@ -46,7 +46,7 @@ def data_preprocessing(df:pd.DataFrame)-> np.ndarray:
     X_train = preprocessor.fit_transform(X_train)
     X_test = preprocessor.transform(X_test)
 
-    with open(MODEL_DIR+'/pipe.pkl','wb') as file:
+    with open(str(MODEL_DIR)+'/pipe.pkl','wb') as file:
       pickle.dump(preprocessor,file)
       
     label_encoder = LabelEncoder()
