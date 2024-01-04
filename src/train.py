@@ -1,6 +1,7 @@
 from src.ingest_data import ingest_data
 from src.preprocessing import data_preprocessing
 from src.hyperparameters import search_hyperparameters
+from src.paths import MODELS_DIR
 from catboost import CatBoostClassifier
 
 import pickle
