@@ -18,6 +18,7 @@ This repository contains code for predicting breast cancer survival using machin
 - **notebook:** Experimental notebooks used for analysis and development.
 - `run_pipeline.py`: Script to initiate the training process using the source code present in the `src` directory.
 - `streamlit_app.py`: Streamlit application for demonstrating the functionality of the trained model.
+-  DockerFile: contains scripts for containerizing the training process.
 
 ## Usage
 - **Training:** Use `run_pipeline.py` to execute the training process. Ensure necessary dependencies are installed by referring to the `requirements.txt` file.
